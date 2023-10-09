@@ -3,7 +3,7 @@ export default (posts = [], action) => { // reducers state are supposed to be a 
         case 'FETCH_ALL':
             return action.payload ;
         case 'CREATE':
-            return posts;
+            return [...posts, action.payload];
         default:
             return posts;
     }

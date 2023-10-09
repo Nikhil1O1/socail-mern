@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import  reducers  from './reducers';
 
 import App from './App';
+import './index.css';
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 // Provider we imported will ensure that we have store accessible in all components globally
