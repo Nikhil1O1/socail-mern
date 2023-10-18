@@ -31,3 +31,10 @@ export const updatePost = async (req, res) => {
     const updatedPost = await PostMessage.findByIdAndUpdate(_id, {...post, _id}, {new: true});
     res.json(updatePost);
 }
+
+export const deletePost = async (req, res) => {
+    const {id} = req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post found');
+    await PostMessage.findByIdAndRemove(id);
+    res.json({message: 'Post deleted successfully'});
+}
