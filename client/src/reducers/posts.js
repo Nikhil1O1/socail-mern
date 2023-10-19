@@ -3,7 +3,8 @@ export default (posts = [], action) => { // reducers state are supposed to be a 
         case 'DELETE':
             return posts.filter(post => post._id !== action.payload);
         case 'UPDATE':
-        return posts.map((post)=> post._id === action.payload._id ? action.payload : post) 
+        case 'LIKE':
+            return posts.map((post)=> post._id === action.payload._id ? action.payload : post) 
         case 'FETCH_ALL':
             return action.payload ;
         case 'CREATE':
@@ -14,3 +15,4 @@ export default (posts = [], action) => { // reducers state are supposed to be a 
 }
 
 //reducers are function that accepts posts and action and returns new posts based on action.
+//update and like do same thing so common action for them
